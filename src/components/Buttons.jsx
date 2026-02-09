@@ -48,13 +48,12 @@ export default function Buttons() {
       <section className="container">
         <div className="d-flex justify-content-around gap-4 m-5">
           {languages.map((language) => (
-            <button key={language.id} className="btn btn-primary" onClick={() => setClicked(language)}>
+            <button key={language.id} className="btn btn-primary" onClick={() => setClicked(clicked === language ? "" : language)}>
               {language.title}
             </button>
           ))}
         </div>
-
-        <DescriptionCard title={clicked.title} description={clicked.description}></DescriptionCard>
+        {clicked ? <DescriptionCard title={clicked.title} description={clicked.description}></DescriptionCard> : <div className="card p-4">Nessun linguaggio selezionato </div>}
       </section>
     </>
   );

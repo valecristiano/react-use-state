@@ -1,6 +1,6 @@
+import { useState } from "react";
 import DescriptionCard from "./DescriptionCard";
 
-DescriptionCard;
 const languages = [
   {
     id: 1,
@@ -41,18 +41,20 @@ const languages = [
 ];
 
 export default function Buttons() {
+  const [clicked, setClicked] = useState(languages[0]);
+
   return (
     <>
       <section className="container">
         <div className="d-flex justify-content-around gap-4 m-5">
           {languages.map((language) => (
-            <button key={language.id} className="btn btn-primary">
+            <button key={language.id} className="btn btn-primary" onClick={() => setClicked(language)}>
               {language.title}
             </button>
           ))}
         </div>
 
-        <DescriptionCard title={languages[0].title} description={languages[0].description}></DescriptionCard>
+        <DescriptionCard title={clicked.title} description={clicked.description}></DescriptionCard>
       </section>
     </>
   );

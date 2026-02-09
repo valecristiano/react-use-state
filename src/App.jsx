@@ -1,4 +1,6 @@
 // import { useState } from "react";
+
+import Header from "./components/Header";
 import Buttons from "./components/Buttons";
 
 export default function App() {
@@ -6,6 +8,7 @@ export default function App() {
 
   return (
     <>
+      <Header></Header>
       <Buttons></Buttons>
     </>
   );

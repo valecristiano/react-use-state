@@ -1,3 +1,6 @@
+import DescriptionCard from "./DescriptionCard";
+
+DescriptionCard;
 const languages = [
   {
     id: 1,
@@ -40,11 +43,17 @@ const languages = [
 export default function Buttons() {
   return (
     <>
-      {languages.map((lenguage, index) => (
-        <div key={index} className="card">
-          <button>{lenguage.title}</button>
+      <section className="container">
+        <div className="d-flex justify-content-around gap-4 m-5">
+          {languages.map((language) => (
+            <button key={language.id} className="btn btn-primary">
+              {language.title}
+            </button>
+          ))}
         </div>
-      ))}
+
+        <DescriptionCard title={languages[0].title} description={languages[0].description}></DescriptionCard>
+      </section>
     </>
   );
 }
